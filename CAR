@@ -1,4 +1,17 @@
 
+//
+// main.cpp
+// OOP_DEMO_CAR
+//
+// Created by wpfang on 2021/3/8.
+// Copyright © 2021 wpfang. All rights reserved.
+//
+/**
+*
+*@auther yixuan lin
+*@version 1.0
+*@since2021-03-12
+*/
 #include <iostream>
 #include <string>
 using namespace std;
@@ -6,13 +19,16 @@ class CCAR {
 private:
 string nickname;
 protected:
-int light;
+int light; 
+/**限定特定的人存取（一個人以上）*/
 int wheel;
-public:
+*public: //任何地方的都可以使用
 CCAR() :light(2)
 {
-wheel = 5;
-cout << "car's constructor(wheel=" << wheel << ")" << endl;
+wheel = 5; 
+/**輪子有５個*/
+*cout << "car's constructor(wheel=" << wheel << ")" << endl; 
+/**建構子(不用呼叫)*/
 }
 CCAR(string nickname) :light(2)
 {
@@ -21,6 +37,7 @@ this->nickname = nickname;
 cout << "car's constructor(nickname=" << nickname << ")" << endl;
 }
 ~CCAR()
+/**解構子(離開記憶體前執行)*/
 {
 cout << "car's destructor" << "(" << nickname << ")" << endl;
 }
@@ -36,7 +53,8 @@ void turn()
 {
 cout << "car's turn" << endl;
 }
-};
+}; 
+/**class敘述結束，大括號後加分號*/
 //--------------------------
 class CBMW : public CCAR {
 public:
@@ -44,14 +62,16 @@ CBMW() { light = 4; wheel = 4; cout << "bmw's constructor" << endl; }
 ~CBMW() { cout << "bmw's destructor" << endl; }
 void Abs()
 {
-cout << "bmw's abs" << endl;
+*cout << "bmw's abs" << endl; 
+/**增加新功能*/
 }
 void start()
 {
-cout << "bmw's start" << endl;
-CCAR::start();//scope operator
-//CCAR c;
-//c.start();
+cout << "bmw's start" << endl; 
+/**修改舊功能*/
+CCAR::start();//scope operator 
+/**scope operator CCAR繼承BMW的bmw's start*/
+
 }
 };
 //--------------------------
@@ -64,3 +84,5 @@ bmw.stop();
 
 return 0;
 }
+Aa
+
